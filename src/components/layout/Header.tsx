@@ -1,7 +1,8 @@
-import { Search, UtensilsCrossed } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Search, UtensilsCrossed, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { Container } from "./Container";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   search: string;
@@ -9,6 +10,13 @@ interface HeaderProps {
 }
 
 export function Header({ search, onSearchChange }: HeaderProps) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    navigate("/login");
+  };
+
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur">
       <Container className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:py-4">
@@ -22,15 +30,20 @@ export function Header({ search, onSearchChange }: HeaderProps) {
           </div>
         </Link>
 
-        <div className="relative w-full sm:max-w-sm">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            value={search}
-            onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Search cuisine — pizza, sushi, ramen…"
-            className="h-11 rounded-full border-border bg-secondary pl-9 pr-4 text-sm shadow-soft focus-visible:ring-primary"
-            aria-label="Search restaurants by cuisine"
-          />
+        <div className="flex w-full sm:max-w-md items-center gap-2">
+          <div className="relative w-full">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              value={search}
+              onChange={(e) => onSearchChange(e.target.value)}
+              placeholder="Search cuisine — pizza, sushi, ramen…"
+              className="h-11 rounded-full border-border bg-secondary pl-9 pr-4 text-sm shadow-soft focus-visible:ring-primary"
+              aria-label="Search restaurants by cuisine"
+            />
+          </div>
+          <Button variant="ghost" size="icon" onClick={handleLogout} className="rounded-full shrink-0" title="Logout">
+            <LogOut className="h-5 w-5" />
+          </Button>
         </div>
       </Container>
     </header>

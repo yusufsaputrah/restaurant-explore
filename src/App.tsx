@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import RestaurantDetail from "./pages/RestaurantDetail.tsx";
+import Login from "./pages/Login.tsx";
+import { ProtectedRoute } from "./components/common/ProtectedRoute.tsx";
 
 const queryClient = new QueryClient();
 
@@ -16,8 +18,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+          <Route path="/login" element={<Login />} />
+          
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+          </Route>
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

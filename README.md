@@ -2,8 +2,8 @@
 
 Frontend Developer technical test. A clean, light, food-app styled React application that lets users browse restaurants, filter by cuisine / price / availability, and view details with reviews and a map.
 
-> **Live demo:** _add your Netlify URL here, e.g._ `https://tastely.netlify.app`
-> **Repository:** _add your GitHub URL here, e.g._ `https://github.com/<your-username>/FrontendDevReactjs-<YourName>`
+> **Live demo:** [https://tastely-yusuf.netlify.app](https://tastely-yusuf.netlify.app)
+> **Repository:** [https://github.com/yusufsaputrah/FrontendDevReactjs-YusufSaputra](https://github.com/yusufsaputrah/FrontendDevReactjs-YusufSaputra)
 
 ---
 
@@ -48,11 +48,11 @@ npm run preview
 
 ## 🔐 Login Credentials
 
-This app **does not require login** — it is a fully public restaurant discovery experience (per scope).
+This app implements a session login screen to protect the core experience.
 
 | Username | Password |
 |----------|----------|
-| _none_   | _none_   |
+| admin    | admin123 |
 
 ---
 
