@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Restaurant Discovery — clean light food-app design system.
+   All colors MUST be HSL. Tokens only — never use raw colors in components. */
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 40 56% 98%;          /* warm white #FFFDFA */
+    --foreground: 24 14% 12%;          /* near-black with warm tint */
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 14% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 14% 12%;
+
+    /* Brand: warm orange */
+    --primary: 18 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 22 100% 95%;
+
+    --secondary: 30 30% 96%;
+    --secondary-foreground: 24 14% 18%;
+
+    --muted: 30 20% 95%;
+    --muted-foreground: 24 8% 42%;
+
+    --accent: 22 100% 95%;
+    --accent-foreground: 18 90% 35%;
+
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status */
+    --open: 150 55% 32%;
+    --open-foreground: 0 0% 100%;
+    --closed: 0 65% 50%;
+    --closed-foreground: 0 0% 100%;
+
+    /* Rating star */
+    --rating: 38 95% 55%;
+
+    --border: 30 20% 89%;
+    --input: 30 20% 89%;
+    --ring: 18 90% 55%;
+
+    --radius: 1rem;
+
+    --shadow-card: 0 6px 24px -10px hsl(24 30% 25% / 0.18);
+    --shadow-soft: 0 2px 10px -4px hsl(24 30% 25% / 0.10);
+    --gradient-hero: linear-gradient(135deg, hsl(18 90% 55%), hsl(38 95% 60%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 24 14% 8%;
+    --foreground: 40 30% 96%;
+    --card: 24 14% 11%;
+    --card-foreground: 40 30% 96%;
+    --popover: 24 14% 11%;
+    --popover-foreground: 40 30% 96%;
+    --primary: 18 90% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 22 40% 18%;
+    --secondary: 24 10% 16%;
+    --secondary-foreground: 40 30% 96%;
+    --muted: 24 10% 16%;
+    --muted-foreground: 30 8% 65%;
+    --accent: 22 40% 18%;
+    --accent-foreground: 22 100% 80%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --open: 150 50% 45%;
+    --open-foreground: 0 0% 100%;
+    --closed: 0 65% 55%;
+    --closed-foreground: 0 0% 100%;
+    --rating: 38 95% 60%;
+    --border: 24 10% 20%;
+    --input: 24 10% 20%;
+    --ring: 18 90% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    @apply tracking-tight;
+  }
+}
+
+/* Leaflet container fix */
+.leaflet-container {
+  @apply rounded-2xl;
+  font-family: inherit;
+}
